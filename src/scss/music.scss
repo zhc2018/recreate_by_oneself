@@ -1,0 +1,113 @@
+/* autoprefixer grid: on */
+$boxWidth:400px;
+$boxHeight:80px;
+$boxBgColor:rgba(0,0,0,0.3);
+$playRect:60px;
+$playRectBgColor:#fff;
+$rectMgRight:30px;
+$preNextBtn:40px;
+$progressBox:140px;
+$progressBgColor:#e0b664;
+$progressBarBgColor:#82e064;
+.music_main{
+    position: absolute;
+    width: $boxWidth;
+    height: $boxHeight;
+    left: 50%;
+    // top: 50%;
+    bottom: 0;
+    margin-left: -$boxWidth/2;
+    margin-top: -$boxHeight/2;
+    background: $boxBgColor;
+    border-radius: 10px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    .play_control{
+        position: absolute;
+        height: 75%;
+        z-index: 10;
+        .play_pause{
+            width: $playRect;
+            height: $playRect;
+            background: $playRectBgColor;
+            float: left;
+            margin-right: $rectMgRight;
+            .play_pause_img{
+                display: block;
+                width: 100%;
+                transition: transform 0.5s ease;
+                transform:translate($rectMgRight,0px);
+                cursor: pointer;
+            }
+            .play_pause_img_site{
+                transform:translate(0px,0px);
+            }
+        }
+        .pushButton{
+            float: left;
+            width: $preNextBtn;
+            margin-top:10px;
+            img{
+                width: 100%;
+                height: 100%;
+                vertical-align: middle;
+                cursor: pointer;
+                transition: transform 0.7s ease;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+        .volume_control{
+            float: left;
+            margin-left: $rectMgRight;
+            margin-top:15px;
+            img{
+                width: 30px;
+                height: 30px;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            .progress_box{
+                width: $progressBox;
+                height: 3px;
+                background:$progressBgColor;
+                border-radius: 3px;
+                cursor: pointer;
+                position: relative;
+                .progress_bar{
+                    height:100%;
+                    transition:width 0.1s linear;
+                    background:$progressBarBgColor;
+                    cursor: pointer;
+                    .progress_bar_dot{
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background: #fff;
+                        top: -3px;
+                        margin-left: -5px;
+                        cursor: pointer;
+                        transition:all 0.1s linear;
+                    }
+                }
+            }
+        }
+    }
+    .play_bgPro{
+        position: absolute;
+        height: 100%;
+        width:100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        border-radius: 10px;
+        .play_bgPro_bar{
+            height: 100%;
+            background-color: #0099ff;
+            opacity: 0.3;
+        }
+    }
+}
